@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.lhn.tutor.entity">
+	<class name="Taught" table="taught">
+		<id name="id" type="java.lang.String">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="motto" type="java.lang.String"/>
+		<property name="price" type="java.lang.String"/>
+		<property name="exper" type="java.lang.String"/>
+		<property name="firstsub" type="java.lang.String"/>
+		<property name="secondsub" type="java.lang.String"/>
+		<property name="type" type="java.lang.String"/>
+		<property name="profile" type="java.lang.String"/>
+  		<!--主的一方  -->
+ 		<one-to-one name="college" cascade="all" class="College" />
+  		<one-to-one name="image" cascade="all" class="Image" />
+	</class>
+</hibernate-mapping>

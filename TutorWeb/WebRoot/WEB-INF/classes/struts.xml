@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">HelloWorld</param>
+                <param name="namespace">/example</param>
+            </result>
+        </action>
+    </package>
+	
+    <include file="example.xml"/>
+    
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+    
+	 -->
+    <package name="default" namespace="/" extends="struts-default">
+		<action name="upload" class="com.lhn.tutor.action.FileUploadAction">
+			<result>/user/User_person_center.jsp</result>
+			<result name="input">/user/User_person_center.jsp</result>
+			<!-- 配置拦截器限制上传文件类型及大小 -->
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">image/bmp,image/x-png,image/gif,image/jpeg</param>
+				<param name="maximumSize">2M</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+    </package>
+
+	<package name="/order" namespace="/order" extends="struts-default">
+		<action name="*_*" class="com.lhn.tutor.action.{1}Action" method="{2}">
+            <result name="add_success">/user/User_book_success.jsp</result>
+            <result name="save_success">/student/Student_modify_success.jsp</result>
+            <result name="modify_success">/student/Student_modify.jsp</result>
+            <result name="delete_success" type="chain">Student_query</result>
+        </action>
+	</package>
+	
+	<package name="/user" namespace="/user" extends="struts-default">
+		<action name="*_*" class="com.lhn.tutor.action.{1}Action" method="{2}">
+            <result name="addAccount_success">/user/User_register_detail.jsp</result>
+            <result name="addAccount_failure">/user/User_register_account1.jsp</result>
+            <result name="addDetail_success">/user/User_register_success.jsp</result>
+            <result name="confirm_success">/user/User_register_account1.jsp</result>
+            <result name="input">/user/User_register_detail.jsp</result>
+            
+        </action>
+    </package>
+	 
+	<package name="/images" namespace="/images" extends="struts-default">
+		<action name="*_*" class="com.lhn.tutor.action.{1}Action" method="{2}">
+            <result name="authenticate_success">/user/User_home_page.jsp</result>
+            <result name="addAccount_failure">/user/User_register_account1.jsp</result>
+            <result name="addDetail_success">/user/User_register_success.jsp</result>
+            <result name="confirm_success">/user/User_register_account1.jsp</result>
+            <result name="input">/user/User_register_detail.jsp</result>
+            
+        </action>
+    </package>
+
+	<package name="/taught" namespace="/taught" extends="struts-default">
+		<action name="*_*" class="com.lhn.tutor.action.{1}Action" method="{2}">
+			<result name="query_success">/user/User_home_page.jsp</result>
+			<result name="detail_success">/user/User_teacher_detail.jsp</result>
+            <result name="adddetail_success">/user/User_book_teacher.jsp</result>
+            <result name="input">/user/User_register_teacher2.jsp</result>
+			<result name="parent_register">/user/User_register_parent1.jsp</result>
+			<result name="student_register">/user/User_register_student1.jsp</result>
+		</action>
+	</package>
+
+	<package name="/student" namespace="/student" extends="struts-default">
+		<action name="*_*" class="action.{1}Action" method="{2}">
+            <result name="query_success">/student/Student_query_success.jsp</result>
+            <result name="add_success">/student/Student_add_success.jsp</result>
+            <result name="save_success">/student/Student_modify_success.jsp</result>
+            <result name="modify_success">/student/Student_modify.jsp</result>
+            <result name="delete_success" type="chain">Student_query</result>
+        </action>
+	</package>
+	
+
+</struts>

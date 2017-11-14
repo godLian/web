@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.lhn.tutor.entity">
+	<class name="Order" table="t_order">
+		<id name="num" type="java.lang.String">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="status" type="java.lang.String" />
+		<property name="nowdate" type="java.lang.String" />
+		<property name="targetname" type="java.lang.String" />
+		<property name="grade" type="java.lang.String" />
+		<property name="learning" type="java.lang.String" />
+		<property name="direction" type="java.lang.String" />
+		<property name="teachdate" type="java.lang.String" />
+		<property name="teacher_id" type="java.lang.String"/>
+		<property name="user_id" type="java.lang.String"/>
+	</class>
+</hibernate-mapping>

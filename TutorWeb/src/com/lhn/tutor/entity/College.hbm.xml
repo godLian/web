@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.lhn.tutor.entity">
+	<class name="College" table="college">
+		<id name="id" type="java.lang.String">
+			<generator class="foreign">
+            	<param name="property">taught</param>
+			</generator>
+		</id>
+		<property name="city" type="java.lang.String" />
+		<property name="school" type="java.lang.String" />
+		<property name="major" type="java.lang.String" />
+		<property name="year" type="java.lang.String" />
+		<property name="years" type="java.lang.String" />
+		<property name="isschool" type="java.lang.Boolean" />
+	    <!-- constrained:用来约束 在底层USERS2数据表中，植入外键-->
+	    <one-to-one name="taught" class="Taught" constrained="true"></one-to-one>
+	</class>
+</hibernate-mapping>
