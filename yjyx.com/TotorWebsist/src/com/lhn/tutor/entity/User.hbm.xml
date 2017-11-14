@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.lhn.tutor.entity">
+	<class name="User" table="user">
+		<id name="id" type="int">
+			<generator class="identity"></generator>
+		</id>
+		<property name="username" type="java.lang.String"/>
+		<property name="password" type="java.lang.String"/>	
+		<!-- 配置一对一关联关系 -->
+		<one-to-one name="student" class="com.lhn.tutor.entity.Student" cascade="all"></one-to-one>
+		<one-to-one name="teacher" class="com.lhn.tutor.entity.Teacher" cascade="all"></one-to-one>
+		<one-to-one name="parent" class="com.lhn.tutor.entity.Parent" cascade="all"></one-to-one>
+	</class>
+</hibernate-mapping>

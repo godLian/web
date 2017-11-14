@@ -1,0 +1,1380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0042)http://bj.ygjj.com/Teacher/InfoManage.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+	
+        家教|数学家教|英语家教|钢琴家教|大学生家教|家教兼职|家教论坛【阳光家教网-北京家教中心-北京家教】
+    
+</title><meta name="keywords" content="家教 家教网 家教中心 数学家教 英语家教 钢琴家教 大学生家教 家教兼职 家教论坛"><meta name="description" content="阳光家教网引领北京家教中介不断规范北京家教服务，为广大学员提供北京语文家教、北京数学家教、北京英语家教、北京钢琴家教、北京音乐家教等各学科的兼职家教老师和专职家庭教师服务，以及为北京小学教师、北京中学教师和北京大学生家教提供家教兼职信息。"><meta content="ALL" name="robots"><meta content="Global" name="distribution"><meta content="General" name="rating"><meta content="[家教]" name="copyright"><meta content="[家教 家教网 家教服务]" name="author"><meta content="chinese" name="language"><meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.ygjj.com&quot; l r (s 0))"><meta content="document" name="resource-type"><meta content="7 days" name="revisit-after"><link href="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/user.css" rel="stylesheet" type="text/css">
+    <script src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/jquery.min.js" type="text/javascript"></script>
+    <script src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/main.js" type="text/javascript"></script>
+    		<script language="javascript">
+				function AddSubject(locs,mylocs,txthh)
+				{
+					for(var i=0;i<locs.length;i++)
+					{
+						if(mylocs.length>=50) return;
+						var opt = locs.options[i];
+						if(opt.selected)
+						{
+							var flag = true;
+							if(opt.value=="") continue;
+							for(var j=0;j<mylocs.length;j++)
+							{
+								var myopt = mylocs.options[j];
+								if(myopt.value == opt.value)
+								{
+									flag = false;
+									break;
+								}
+							}
+							if(flag)
+							{
+								mylocs.options[mylocs.options.length] = new Option(opt.text, opt.value, 0, 0);
+							}
+						}
+					}
+					GetSubject(mylocs,txthh);
+				}
+				
+				function DelSubject(mylocs,txthh)
+				{
+					for(var i=mylocs.length-1;i>=0;i--)
+					{
+						var opt = mylocs.options[i];
+						if(opt.selected)
+						{
+							mylocs.options[i] = null;
+						}
+					}
+					GetSubject(mylocs,txthh);
+				}
+				function GetSubject(mylocs,txthh)
+				{
+					var vv = "";
+					for(var i=0;i<mylocs.length;i++)
+					{
+						var opt = mylocs.options[i];
+						vv += opt.value + ",";
+					}
+					txthh.value = vv;
+				}
+				function CheckForm()
+				{
+					if(document.all("txtPhone").value == "")
+					{
+						alert("联系电话必须填写！");
+						document.all("txtPhone").focus();
+						return false;
+					}
+					if(document.all("txtEmail").value == "")
+					{
+						alert("电子邮件必须填写！");
+						document.all("txtEmail").focus();
+						return false;
+					}
+					if(document.all("txtHiddenType").value == "在校教员")
+					{
+						if(document.all("lstBigArea").options[0].selected)// || document.all("lstSmallArea").options[0].selected)
+						{
+							alert("学校住所必须填写");
+							return false;
+						}
+						if(document.all("lstBigArea2").options[0].selected)// || document.all("lstSmallArea2").options[0].selected)
+						{
+							alert("家庭住所必须填写");
+							return false;
+						}
+						if(document.all("txtCity").value=="10")
+						{
+							if(document.all("lstSmallArea").options[0].selected)
+							{
+								alert("学校住所小区域必须填写");
+								return false;
+							}
+							if(document.all("lstSmallArea2").options[0].selected)
+							{
+								alert("家庭住所小区域必须填写");
+								return false;
+							}
+						}
+					}
+					else
+					{
+						if(document.all("lstBigArea").options[0].selected)// || document.all("lstSmallArea").options[0].selected)
+						{
+							alert("生活住所必须填写");
+							return false;
+						}
+						if(document.all("txtCity").value=="10")
+						{
+							if(document.all("lstSmallArea2").options[0].selected)
+							{
+								alert("生活住所小区域必须填写");
+								return false;
+							}
+						}
+					}
+					/*if(document.all("txtAddress").value == "")
+					{
+						alert("通讯地址必须填写！");
+						document.all("txtAddress").focus();
+						return false;
+					}
+					if(document.all("txtZipcode").value == "")
+					{
+						alert("邮政编码必须填写！");
+						document.all("txtZipcode").focus();
+						return false;
+					}*/
+					if(document.all("txtHidden").value == "")
+					{
+						alert("授课科目必须填写！");
+						return false;
+					}
+					if(document.all("txtHiddenArea").value == "")
+					{
+						alert("授课区域必须填写！");
+						return false;
+					}
+					if(document.all("txtSalary").value == "")
+					{
+						alert("薪酬要求必须填写！");
+						document.all("txtSalary").focus();
+						return false;
+					}
+					return true;
+				}
+    </script>
+</head>
+<body>
+    <form method="post" action="http://bj.ygjj.com/Teacher/InfoManage.aspx" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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kZgM5a+85ri46ICD6K+VCeWNleivgeWRmAzmnJ/otKfku47kuJoP566h55CG5ZKo6K+i5biICeW7uumAoOW4iAzmiafkuJrljLvluIgM5omn5Lia5oqk5aOrD+WFrOWFseiQpeWFu+W4iA/lv4PnkIblkqjor6LluIgM56eY5Lmm6LWE5qC8AAAG6Zmq546pBumZqui0rQbkvLTmuLgG5a+85ri4BumtlOacrwAADOW4guWcuuiwg+afpQzllYblk4Hkv4PplIAM5bm/5ZGK5oqV6YCSDOa1t+aKpeW8oOi0tAzkuZDpmJ/mvJTlpY8M5q2M5ZSx6Iie6LmIDOiKguebruS4u+aMgQznpLzku6rmqKHnibkM5b2i6LGh5Luj6KiADOWutuaUv+S/neWnhgzmlofmoaPlpITnkIYM5Y+M5LyR6aG254+tFCsD0wJnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dkZAJUDxBkDxYBZhYBEAUM5bm85YS/6Zmq546pBQzlubzlhL/pmarnjqlnZGQCWg8QFgYfBAUMV29ya0FyZWFOYW1lHwUFDFdvcmtBcmVhTmFtZR8GZxAVBwbmlrDnvZcG5ryz5bmzBumVv+axgAbmrablubMG5LiK5p2tBuawuOWumgbov57ln44VBwbmlrDnvZcG5ryz5bmzBumVv+axgAbmrablubMG5LiK5p2tBuawuOWumgbov57ln44UKwMHZ2dnZ2dnZ2RkAlwPEGQPFgFmFgEQBQbmlrDnvZcFBuaWsOe9l2dkZAJmDw9kFgIeB29uY2xpY2sFHmlmKCFDaGVja0Zvcm0oKSkgcmV0dXJuIGZhbHNlO2QYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgkFElN1YmplY3QkbHN0U3ViamVjdAUMbHN0TXlTdWJqZWN0BQdsc3RBcmVhBQlsc3RNeUFyZWEFE1RlYWNoVHlwZSRjaGtMaXN0JDAFE1RlYWNoVHlwZSRjaGtMaXN0JDEFE1RlYWNoVHlwZSRjaGtMaXN0JDIFE1RlYWNoVHlwZSRjaGtMaXN0JDMFE1RlYWNoVHlwZSRjaGtMaXN0JDNqM8alSE6WXCQSSwRWRPGhU+cxhg==">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/WebResource.axd" type="text/javascript"></script>
+
+
+<script src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/ScriptResource.axd" type="text/javascript"></script>
+<script src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/ScriptResource(1).axd" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="42303EBF">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdADVo0tUEPlhICCAHsRMttgB/uN20alD453sk/1mHvGiRiGAqfycWSmOgBdFx99p+DlTN+DvxnwFeFeJ9MIBWR693GJ8mPx1M9k0m6ctWK5I7dHVx2BuKKI73UBA8jh/ELcmvSabf/k+lOU0T5ikb0Mbs5XDRSrAiHH9tsr9IrP/dkMQCEMlydxSGNXz92ggO2k757krzdrowy1YqiaDEjlkHFcTd2TBrVxEAJVrcwengG8MMbLDTDdWG4wwZS5nJEwMRcqOxacjR3DIgjpqO+d93QwdmH1m48FGJ7a8D8d+hEp0ylDqyVI8mTBW7LBA0VGswPl2E06U4+BbUDvlCMlRLAVwac9uyMOpjFR0WULdRvXWKXoYpe3HkWtfs1a5GCKWuziXwBH8Xgb902rfTS+6x0UQcaZ/wetRHwyxMQ7Wg/hcdcxECCOS4r7eZHLiIHzF4u1YSTscIrCGbuAv30lGPJGFTbB9xmQN3RdhgyCWgWJd240TPQcZjAPBon/WmQ8q8YT+VVPWYj2OIRvoM41uPeMfzsa/CKqoFqUd7c2ZG6hDQS75ByrQNlZ2RsDf6ep53HaHTvwIY4J5eXgzsh/+sqO4X43LGGEXyuF8n0qY7sPoBYuqwH1AW7y6DvFmna4M4Gd+doigGMecuwnMJZ7McjCgakZbXJ3IizyGzRNYwhK4x2wi20bfd9wQDg7Z2VotzYeoLEQOda9zt6LHX/RtKA4wDE9DdUI6Vag6HiQVdEpqPnR1JXGHWscSP1P0vWV28J2kaCapIwFv8ZnPvRd0WK5rQhy0azVwqyiCqjwOP2KnvMc66QIPzjI4IzYppbYwR9iuG7G/LZapC1CUdCXr60ZdKNz97o+Ro8Owp6ZSjt2pCXR87C8C5LpKGkIUICnRDYX4DdQ58oo6N19Pf2P+e/dR3ynIG6QDIptE6Kvx1hoEa4Odk2I6uD6uMdB54w2HMgEC/veWZDayiS4wIkiJAGMnLnFj9Y9NRX7N1z7y5FDeejjrzUCxECW8zVDHxA2vOWUz/MKwl3V03Nnw8gHwKe/H+X/J/kv5Z+vMid3CwJV4K89Z2GqOvGPhOmYUitKViZvfiH6n22pu/Ixdh+X4iPOaW1pQztoQA36D1w/+bXclU1biYWplWPJLOU5zjgnxvWakK">
+</div>
+    
+
+<!-- 代码 开始 -->
+<div id="leftsead">
+	<ul>
+        
+		<li>
+			<a href="javascript:void(0)" class="youhui">
+				<img src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/l02.png" width="47" height="49" class="shows">
+				<img src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/a.png" width="57" height="49" class="hides">
+				<img src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/wx.jpg" class="2wm" style="display:none;margin:-100px 57px 0 0">
+			</a>
+		</li>
+        
+        <li id="tel">
+        <a href="javascript:void(0)">
+            <div class="hides" style="width:161px;display:none;" id="tels">
+                <div class="hides" id="p1">
+                    <img src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/ll05.png">
+                </div>
+                <div class="hides" id="p3"><span style="color:#FFF;font-size:12px">400-700-7788</span>
+                </div>
+            </div>
+        <img src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/l05.png" width="47" height="49" class="shows">
+        </a>
+        </li>
+        
+        <li id="btn">
+        <a id="top_btn">
+            <div class="hides" style="width:161px;display:none">
+                <img src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/ll06.png" width="161" height="49">
+            </div>
+            <img src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/l06.png" width="47" height="49" class="shows">
+        </a>
+        </li>
+    </ul>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#leftsead a").hover(function () {
+            if ($(this).prop("className") == "youhui") {
+                $(this).children("img.hides").show();
+            } else {
+                $(this).children("div.hides").show();
+                $(this).children("img.shows").hide();
+                $(this).children("div.hides").animate({ marginRight: '0px' }, '0');
+            }
+        }, function () {
+            if ($(this).prop("className") == "youhui") {
+                $(this).children("img.hides").hide();
+            } else {
+                $(this).children("div.hides").animate({ marginRight: '-163px' }, 0, function () { $(this).hide(); $(this).next("img.shows").show(); });
+            }
+        });
+
+        $("#top_btn").click(function () { if (scroll == "off") return; $("html,body").animate({ scrollTop: 0 }, 600); });
+
+        //右侧导航 - 二维码
+        $(".youhui").mouseover(function () {
+            $(this).children(".2wm").show();
+        })
+        $(".youhui").mouseout(function () {
+            $(this).children(".2wm").hide();
+        });
+
+
+    });
+
+
+</script>
+<!-- 代码 结束 -->
+<div class="topbar">
+    <div class="topbox">
+        
+        <div id="Header1_divLogout" class="box_1">
+            您好！欢迎来到阳光家教网！<a href="http://bj.ygjj.com/Teacher/Index">个人中心</a> | <input type="submit" name="Header1$lkbLogOut" value=" " id="Header1_lkbLogOut" class="headlogout"></div>
+        <div class="box_2">
+            <div class="wxwb">
+                <div class="wb">
+                    <a href="http://weibo.com/ygjjcom" target="_blank" rel="nofollow"><span>&nbsp;</span>阳光家教微博</a>
+                </div>
+                <div class="wx">
+                    <a href="javascript:void(0);"><span>&nbsp;</span>阳光家教微信</a>
+                    <div class="wximg">
+                        <img src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/wx.jpg"></div>
+                    <script type="text/javascript">
+                        $("div.wx").hover(function () {
+                            $(this).children(".wximg").show();
+                        }, function () {
+                            $(this).children(".wximg").hide();
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="fav">
+                <div class="tel">
+                    全国投诉专线：<span>021-51082788*2</span></div>
+                <span>&nbsp;|&nbsp;<a href="javascript:window.external.addFavorite(&#39;http://www.ygjj.com&#39;,&#39;阳光家教网&#39;)">收藏本站</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end top-->
+<!--head-->
+<div class="head">
+    <div class="logo">
+        <h1><a href="http://www.ygjj.com/"><img src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/logo.png" border="0"></a></h1></div>
+    <div class="city">
+        <h3>
+            北京</h3>
+        <span><a href="http://www.ygjj.com/">[切换城市]</a></span>
+    </div>
+    <div class="cityTel" style="display:none">
+        <span>北京热线电话</span>
+        <p>
+            400-700-7788 
+            </p>
+    </div>
+    <div class="info2"><p class="txt">阳光家教已有<span id="Header1_teacherCount" class="num">565491</span>名注册教员<br>帮助了<span id="Header1_studentCount" class="num">178740</span>名家长找家教</p></div>
+</div>
+<!--end head-->
+<!--nav-->
+<div class="navBar">
+    <div class="navBox">
+        <div class="classBox">
+            <div class="class">
+                 <a href="http://bj.ygjj.com/"><font color="#ffffff">北京家教</font></a></div>
+            
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="http://bj.ygjj.com/jy_a0_s02_c0_f0_x0_g1/" class="">数学家教</a></li>
+                <li><a href="http://bj.ygjj.com/jy_a0_s03_c0_f0_x0_g1/" class="">英语家教</a></li>
+                <li><a href="http://bj.ygjj.com/Cost.aspx" class="">家教价格</a></li>
+                <li><a href="http://bj.ygjj.com/Teachers.aspx" class="">家教老师库</a></li>
+                <li><a href="http://bj.ygjj.com/Orders.aspx" class="">学员库</a></li>
+                <li><a href="http://bj.ygjj.com/Articles.aspx" class="" target="_blank">家教学堂</a></li>
+                <li><a href="http://bj.ygjj.com/Teacher/Index" class="on">个人中心</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/Xslider.js"></script>
+<script type="text/javascript">
+
+    //科目
+    $(".classBox").hover(function () {
+        $(".classBox>.class").removeClass("classOn");
+        $(".classBox>.subNav").show();
+    }, function () {
+        $(".classBox>.subNav").hide();
+        $(".classBox>.class").addClass("classOn");
+    });
+
+    $(".classBox2>.libox").hover(function () {
+        $(this).children("div.div1").addClass("on");
+        $(this).children("div.div2").show();
+    }, function () {
+        $(this).children("div.div1").removeClass("on");
+        $(this).children("div.div2").hide();
+    });
+</script>
+<!--end nav-->
+
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', ['tUpdatePanel2','UpdatePanel2','tUpdatePanel1','UpdatePanel1'], [], [], 90, '');
+//]]>
+</script>
+
+        <div class="containerBox">
+        <!--container-->
+        <div class="container">
+            <!--bread-->
+            <div class="bread">
+                <div class="dh">
+                    当前位置：<a href="">首页</a> &gt; 教员中心</div>
+                <div class="fx">
+                    <!-- Baidu Button BEGIN -->
+                    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+                        <span class="bds_more">分享到：</span> <a class="bds_qzone"></a><a class="bds_tsina">
+                        </a><a class="bds_tqq"></a><a class="bds_renren"></a><a class="bds_t163"></a><a class="shareCount">
+                        </a>
+                    </div>
+                    <!-- Baidu Button END -->
+                </div>
+            </div>
+            <!--end bread-->
+            <!--container2-->
+            <div class="container2">
+                
+                <div class="uleft">
+                    <div class="txBox">
+                        <div class="txBox2">
+                            <img src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/tx_0.jpg" border="0" width="20" height="24"></div>
+                        <div class="txBox3">
+                            <a href="http://bj.ygjj.com/Teacher/HeadImg.aspx">更改头像</a></div>
+                    </div>
+                    <div class="unav">
+                        <div class="tit">
+                            &nbsp;</div>
+                        <div class="item">
+                            <a href="http://bj.ygjj.com/Teacher/CardManage.aspx">证件认证</a></div>
+                        
+                        <div class="item">
+                            <a href="http://bj.ygjj.com/Teacher/QYApply.aspx">签约教员</a></div>
+                        <div class="item">
+                            <a href="http://bj.ygjj.com/Teacher/FundDetail.aspx">充值管理</a></div>
+                        
+                        <div class="tit tit2">
+                            &nbsp;</div>
+                        <div class="item">
+                            <a href="http://bj.ygjj.com/Teacher/TeachList.aspx">我的订单</a></div>
+                        <div class="item">
+                            <a href="http://bj.ygjj.com/Teacher/OrderList.aspx">预约记录</a></div>
+                        <div class="tit tit3">
+                            &nbsp;</div>
+                        <div class="item on">
+                            <a href="http://bj.ygjj.com/Teacher/InfoManage.aspx">修改完善资料</a></div>
+                        <div class="item">
+                            <a href="http://bj.ygjj.com/Teacher/ModeManage.aspx">个人状态设置</a></div>
+                        <div class="item">
+                            <a href="http://bj.ygjj.com/Teacher/PasswordManage.aspx">更改密码</a></div>
+                        <div class="item">
+                            <a href="http://bj.ygjj.com/Teacher/PhotoManage.aspx">相册管理</a></div>
+                        <div class="item">
+                            <a href="http://bj.ygjj.com/Teacher/MyBoards.aspx">留言反馈</a></div>
+                    </div>
+                </div>
+
+
+                <div class="uright">
+                    <div class="uhead">
+                        更改基本资料</div>
+                    <div class="editBox">
+                        <div class="ui_editTit">
+                            基本信息</div>
+                        <table cellpadding="0" cellspacing="0">
+                            <tbody><tr>
+                                <th>
+                                    教员编号：
+                                </th>
+                                <td colspan="3">
+                                    <span id="lblDisId" style="color:Red;">1044</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th width="20%">
+                                    会员账号：
+                                </th>
+                                <td width="30%">
+                                    <span id="lblAccount" style="color:Red;">jecklian</span>
+                                </td>
+                                <th width="20%">
+                                    认证/签约：
+                                </th>
+                                <td width="30%">
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    真实姓名：
+                                </th>
+                                <td>
+                                    <span id="lblName">连惠男</span>
+                                </td>
+                                <th>
+                                    性&nbsp;&nbsp;&nbsp; 别：
+                                </th>
+                                <td>
+                                    <span id="lblGendar">男</span>
+                                </td>
+                            </tr>
+                            <tr style="display:none">
+                                <th>
+                                    身份证号：
+                                </th>
+                                <td>
+                                    <span id="lblIdentity"></span>
+                                </td>
+                                <th>
+                                    民&nbsp;&nbsp;&nbsp; 族：
+                                </th>
+                                <td>
+                                    <span id="lblNative">汉族</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    出生年月：
+                                </th>
+                                <td>
+                                    <span id="lblBirthday">1995-11</span>
+                                </td>
+                                <th>
+                                    来自省份：
+                                </th>
+                                <td>
+                                    <span id="lblProvince">福建</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                
+                                <th>
+                                    最高学历：
+                                </th>
+                                <td colspan="3">
+                                    <span id="lblTopDegree">大专在读</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    高中母校：
+                                </th>
+                                <td>
+                                    <span id="lblHighSchool">泉港二中</span>
+                                </td>
+                                <th>
+                                    所学专业：
+                                </th>
+                                <td>
+                                    <span id="lblMajor">软件工程</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    就读学校：
+                                </th>
+                                <td>
+                                    <span id="lblCollegeName">龙岩学院</span>
+                                </td>
+                                <th>
+                                    现有身份：
+                                </th>
+                                <td>
+                                    <span id="lblIdentitys">在校大四学生</span>
+                                </td>
+                            </tr>
+                            
+                        </tbody></table>
+                        <div id="pnlIden">
+	
+                            <div class="ui_editTit">
+                                身份修改</div>
+                            <table cellpadding="0" cellspacing="0">
+                                <tbody><tr>
+                                    <th width="20%">
+                                        现有身份：
+                                    </th>
+                                    <td>
+                                        <select name="IdentityS$lstStudent" id="IdentityS_lstStudent" class="ddl" nullmsg="请选择目前身份" datatype="*">
+		<option value="">请选择</option>
+		<option value="在校大一学生">在校大一学生</option>
+		<option value="在校大二学生">在校大二学生</option>
+		<option value="在校大三学生">在校大三学生</option>
+		<option selected="selected" value="在校大四学生">在校大四学生</option>
+		<option value="在校大五学生">在校大五学生</option>
+		<option value="在读硕士生">在读硕士生</option>
+		<option value="在读博士生">在读博士生</option>
+		<option value="其他">其他</option>
+	</select>
+
+                                        &nbsp;<input type="submit" name="Button1" value="修改身份" id="Button1"><span class="red">（新学期即将开始，请及时更新身份！）</span>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        
+</div>
+                        <div class="ui_editTit">
+                            主要特长</div>
+                        <table cellpadding="0" cellspacing="0">
+                            <tbody><tr style="display:none">
+                                <th width="20%">
+                                    普 通 话：
+                                </th>
+                                <td>
+                                    <select name="Chinese$lstChinese" id="Chinese_lstChinese" class="ddl">
+	<option selected="selected" value="标准">标准</option>
+	<option value="一般">一般</option>
+	<option value="较差">较差</option>
+</select>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    外&nbsp;&nbsp;&nbsp; 语：
+                                </th>
+                                <td>
+                                    <select name="Foreign$lstForeign" id="Foreign_lstForeign" class="ddl">
+	<option selected="selected" value="无">无</option>
+	<option value="英语">英语</option>
+	<option value="日语">日语</option>
+	<option value="法语">法语</option>
+	<option value="德语">德语</option>
+	<option value="俄语">俄语</option>
+	<option value="朝鲜语">朝鲜语</option>
+	<option value="西班牙语">西班牙语</option>
+	<option value="阿拉伯语">阿拉伯语</option>
+	<option value="其它">其它</option>
+</select>
+<select name="Foreign$lstRank" id="Foreign_lstRank" class="ddl">
+	<option selected="selected" value="无">无</option>
+	<option value="一级">一级</option>
+	<option value="二级">二级</option>
+	<option value="三级">三级</option>
+	<option value="四级">四级</option>
+	<option value="专四">专四</option>
+	<option value="六级">六级</option>
+	<option value="专八">专八</option>
+	<option value="精通">精通</option>
+	<option value="熟练">熟练</option>
+	<option value="良好">良好</option>
+	<option value="一般">一般</option>
+</select>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    自我描述&nbsp;&nbsp;<br>特长展示：
+                                </th>
+                                <td>
+                                    <textarea name="txtSpecial" rows="3" cols="20" id="txtSpecial" class="textarea" style="width:288px;"></textarea><br>
+                                    展示实力，增加你的魅力！比如你竞赛中获得过什么奖项，取得过什么出色的成绩，有哪些过硬的证书之类。
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    家教经历&nbsp;&nbsp;<br>教学成果：
+                                </th>
+                                <td>
+                                    <textarea name="txtExperience" rows="3" cols="20" id="txtExperience" class="textarea" style="width:288px;"></textarea><br>
+                                    这些内容是对你教学水平最有力和最直接的反映！是学员选择你的一项重要依据。
+                                </td>
+                            </tr>
+                        </tbody></table>
+                        <div class="ui_editTit">
+                            联系方式</div>
+                        <table cellpadding="0" cellspacing="0">
+                            <tbody><tr>
+                                <th width="20%">
+                                    联系电话：
+                                </th>
+                                <td width="80%">
+                                    <input name="txtPhone" type="text" value="18359337329" id="txtPhone" class="txt" style="width:144px;">
+                                    
+                                    可填多个，请注明(宅)(校)。
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    手机号码：
+                                </th>
+                                <td>
+                                    <input name="txtMobile" type="text" value="18359337329" id="txtMobile" class="txt" style="width:144px;">
+                                    
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    QQ&nbsp;号码：
+                                </th>
+                                <td>
+                                    <input name="txtQq" type="text" value="956645947" id="txtQq" class="txt" style="width:144px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    微 信 号：
+                                </th>
+                                <td>
+                                    <input name="txtMsn" type="text" id="txtMsn" class="txt" style="width:144px;">阳光家教网微信号：ygjjcom
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    电子邮件：
+                                </th>
+                                <td>
+                                    <input name="txtEmail" type="text" id="txtEmail" class="txt" style="width:224px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    学校住所：
+                                </th>
+                                <td>
+                                <div id="UpdatePanel2">
+	
+                                    大区域：
+                                    <select name="lstBigArea" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;lstBigArea\&#39;,\&#39;\&#39;)&#39;, 0)" id="lstBigArea" class="ddl">
+		<option value="-1">---请选择---</option>
+		<option selected="selected" value="1277">新罗</option>
+		<option value="1278">漳平</option>
+		<option value="1279">长汀</option>
+		<option value="1280">武平</option>
+		<option value="1281">上杭</option>
+		<option value="1282">永定</option>
+		<option value="1283">连城</option>
+
+	</select>
+                                    &nbsp;小区域：
+                                    <select name="lstSmallArea" id="lstSmallArea" class="ddl">
+		<option value="">---请选择---</option>
+	</select>
+                                    <span id="lblA1">走读教员请填家庭住址</span><input name="txtHiddenType" type="hidden" id="txtHiddenType" style="width: 32px; height: 18px" size="1" value="在校教员">
+                                
+</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    家庭住所：
+                                </th>
+                                <td>
+                                <div id="UpdatePanel1">
+	
+                                    大区域：
+                                    <select name="lstBigArea2" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;lstBigArea2\&#39;,\&#39;\&#39;)&#39;, 0)" id="lstBigArea2" class="ddl">
+		<option value="-1">---请选择---</option>
+		<option selected="selected" value="1277">新罗</option>
+		<option value="1278">漳平</option>
+		<option value="1279">长汀</option>
+		<option value="1280">武平</option>
+		<option value="1281">上杭</option>
+		<option value="1282">永定</option>
+		<option value="1283">连城</option>
+
+	</select>
+                                    &nbsp;小区域：
+                                    <select name="lstSmallArea2" id="lstSmallArea2" class="ddl">
+		<option value="">---请选择---</option>
+	</select>
+                                    <span id="lblA2">住校教员请填学校住址</span>
+                                
+</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    通讯地址：
+                                </th>
+                                <td>
+                                    <input name="txtAddress" type="text" value="龙岩学院一组团六栋" id="txtAddress" class="txt" style="width:224px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    邮政编码：
+                                </th>
+                                <td>
+                                    <input name="txtZipcode" type="text" value="362800" id="txtZipcode" class="txt" style="width:80px;"><input name="txtCity" type="hidden" id="txtCity" value="168">
+                                </td>
+                            </tr>
+                        </tbody></table>
+                        <div class="ui_editTit">
+                            家教意愿</div>
+                        <table cellpadding="0" cellspacing="0">
+                            <tbody><tr>
+                                <th width="20%">
+                                    教授科目：
+                                </th>
+                                <td width="">
+                                    <table cellspacing="0" cellpadding="0" border="0">
+                                        <tbody><tr>
+                                            <td width="120">
+                                                <select name="Subject$lstSubject" id="Subject_lstSubject" style="WIDTH: 180px;height:180px" multiple="multiple" size="10" class="ddl">
+	<option value="">请选择家教科目</option>
+	<option value="">---学龄前---</option>
+	<option value="启蒙教育">启蒙教育</option>
+	<option value="幼小衔接">幼小衔接</option>
+	<option value="学前教育">学前教育</option>
+	<option value="幼儿陪玩">幼儿陪玩</option>
+	<option value="幼儿托管">幼儿托管</option>
+	<option value="珠心算">珠心算</option>
+	<option value=""></option>
+	<option value="">--小学课程--</option>
+	<option value="小学语文">小学语文</option>
+	<option value="小学数学">小学数学</option>
+	<option value="小学英语">小学英语</option>
+	<option value="星级英语">星级英语</option>
+	<option value="小学奥数">小学奥数</option>
+	<option value="小学科学">小学科学</option>
+	<option value="小学陪读">小学陪读</option>
+	<option value="小学托管">小学托管</option>
+	<option value="小学接送">小学接送</option>
+	<option value="小学英文版教材">小学英文版教材</option>
+	<option value=""></option>
+	<option value="">--初中课程--</option>
+	<option value="初一初二语文">初一初二语文</option>
+	<option value="初一初二英语">初一初二英语</option>
+	<option value="初一初二数学">初一初二数学</option>
+	<option value="初一初二物理">初一初二物理</option>
+	<option value="初一初二化学">初一初二化学</option>
+	<option value="初一初二奥数">初一初二奥数</option>
+	<option value="初一初二科学">初一初二科学</option>
+	<option value="初三语文">初三语文</option>
+	<option value="初三英语">初三英语</option>
+	<option value="初三数学">初三数学</option>
+	<option value="初三物理">初三物理</option>
+	<option value="初三化学">初三化学</option>
+	<option value="初三生物">初三生物</option>
+	<option value="初三历史">初三历史</option>
+	<option value="初三地理">初三地理</option>
+	<option value="初三政治">初三政治</option>
+	<option value="初三奥数">初三奥数</option>
+	<option value="初三科学">初三科学</option>
+	<option value="SSAT">SSAT</option>
+	<option value="GCSE">GCSE</option>
+	<option value="IGCSE">IGCSE</option>
+	<option value="初中文科英文版">初中文科英文版</option>
+	<option value="初中理科英文版">初中理科英文版</option>
+	<option value="中考心理辅导">中考心理辅导</option>
+	<option value=""></option>
+	<option value="">--高中课程--</option>
+	<option value="高一高二语文">高一高二语文</option>
+	<option value="高一高二英语">高一高二英语</option>
+	<option value="高一高二数学">高一高二数学</option>
+	<option value="高一高二物理">高一高二物理</option>
+	<option value="高一高二化学">高一高二化学</option>
+	<option value="高一高二生物">高一高二生物</option>
+	<option value="高一高二历史">高一高二历史</option>
+	<option value="高一高二地理">高一高二地理</option>
+	<option value="高一高二政治">高一高二政治</option>
+	<option value="高一高二奥数">高一高二奥数</option>
+	<option value="高一高二科学">高一高二科学</option>
+	<option value="高三语文">高三语文</option>
+	<option value="高三英语">高三英语</option>
+	<option value="高三数学">高三数学</option>
+	<option value="高三物理">高三物理</option>
+	<option value="高三化学">高三化学</option>
+	<option value="高三生物">高三生物</option>
+	<option value="高三历史">高三历史</option>
+	<option value="高三地理">高三地理</option>
+	<option value="高三政治">高三政治</option>
+	<option value="高三奥数     ">高三奥数     </option>
+	<option value="高三科学">高三科学</option>
+	<option value="AP">AP</option>
+	<option value="IB">IB</option>
+	<option value="SAT">SAT</option>
+	<option value="A-Level">A-Level</option>
+	<option value="高中文科英文版">高中文科英文版</option>
+	<option value="高中理科英文版">高中理科英文版</option>
+	<option value="高考心理辅导">高考心理辅导</option>
+	<option value=""></option>
+	<option value="">--三校生课程--</option>
+	<option value="三校生语文">三校生语文</option>
+	<option value="三校生数学">三校生数学</option>
+	<option value="三校生英语">三校生英语</option>
+	<option value="三校生物理">三校生物理</option>
+	<option value="三校生化学">三校生化学</option>
+	<option value="三校生生物">三校生生物</option>
+	<option value="三校生历史">三校生历史</option>
+	<option value="三校生地理">三校生地理</option>
+	<option value="三校生政治">三校生政治</option>
+	<option value=""></option>
+	<option value="">--大学课程--</option>
+	<option value="高等数学">高等数学</option>
+	<option value="英语四级">英语四级</option>
+	<option value="英语六级">英语六级</option>
+	<option value="英语八级">英语八级</option>
+	<option value="论文指导">论文指导</option>
+	<option value="会计">会计</option>
+	<option value="成人高考">成人高考</option>
+	<option value="专升本">专升本</option>
+	<option value="考研">考研</option>
+	<option value=""></option>
+	<option value="">--中文/方言--</option>
+	<option value="外国人中文">外国人中文</option>
+	<option value="精准普通话">精准普通话</option>
+	<option value="手语">手语</option>
+	<option value="上海话">上海话</option>
+	<option value="粤语">粤语</option>
+	<option value="闽南语">闽南语</option>
+	<option value=""></option>
+	<option value="">--外语/翻译--</option>
+	<option value="英语口语">英语口语</option>
+	<option value="商务英语">商务英语</option>
+	<option value="新概念英语">新概念英语</option>
+	<option value="牛津英语">牛津英语</option>
+	<option value="剑桥英语">剑桥英语</option>
+	<option value="中级口译">中级口译</option>
+	<option value="高级口译">高级口译</option>
+	<option value="托福">托福</option>
+	<option value="托业">托业</option>
+	<option value="雅思">雅思</option>
+	<option value="笔译">笔译</option>
+	<option value="口译">口译</option>
+	<option value="商务谈判">商务谈判</option>
+	<option value="同声传译">同声传译</option>
+	<option value="GRE">GRE</option>
+	<option value="GMAT">GMAT</option>
+	<option value="LSAT">LSAT</option>
+	<option value="TOPE">TOPE</option>
+	<option value="BEC">BEC</option>
+	<option value="MSE">MSE</option>
+	<option value="日语">日语</option>
+	<option value="法语">法语</option>
+	<option value="德语">德语</option>
+	<option value="韩语">韩语</option>
+	<option value="俄语">俄语</option>
+	<option value="希腊语">希腊语</option>
+	<option value="瑞典语">瑞典语</option>
+	<option value="荷兰语">荷兰语</option>
+	<option value="意大利语">意大利语</option>
+	<option value="西班牙语">西班牙语</option>
+	<option value="葡萄牙语">葡萄牙语</option>
+	<option value="阿拉伯语">阿拉伯语</option>
+	<option value="波兰语">波兰语</option>
+	<option value="希伯来语">希伯来语</option>
+	<option value="乌克兰语">乌克兰语</option>
+	<option value="泰语">泰语</option>
+	<option value=""></option>
+	<option value="">--艺术/乐器--</option>
+	<option value="钢琴">钢琴</option>
+	<option value="电子琴">电子琴</option>
+	<option value="小提琴">小提琴</option>
+	<option value="中提琴">中提琴</option>
+	<option value="大提琴">大提琴</option>
+	<option value="长笛">长笛</option>
+	<option value="吉它">吉它</option>
+	<option value="手风琴">手风琴</option>
+	<option value="萨克斯">萨克斯</option>
+	<option value="黑管">黑管</option>
+	<option value="单簧管">单簧管</option>
+	<option value="双簧管">双簧管</option>
+	<option value="打击乐">打击乐</option>
+	<option value="小号">小号</option>
+	<option value="大号">大号</option>
+	<option value="圆号">圆号</option>
+	<option value="二胡">二胡</option>
+	<option value="笛子">笛子</option>
+	<option value="琵琶">琵琶</option>
+	<option value="古筝">古筝</option>
+	<option value="唢呐">唢呐</option>
+	<option value="笙">笙</option>
+	<option value="箫">箫</option>
+	<option value="埙">埙</option>
+	<option value="巴乌">巴乌</option>
+	<option value="葫芦丝">葫芦丝</option>
+	<option value="扬琴">扬琴</option>
+	<option value="柳琴">柳琴</option>
+	<option value="中阮">中阮</option>
+	<option value="古琴">古琴</option>
+	<option value="三弦">三弦</option>
+	<option value="板胡">板胡</option>
+	<option value="三味线">三味线</option>
+	<option value="尤克里里">尤克里里</option>
+	<option value="摄影">摄影</option>
+	<option value="书法">书法</option>
+	<option value="美术">美术</option>
+	<option value="雕塑">雕塑</option>
+	<option value="剪纸">剪纸</option>
+	<option value="陶艺">陶艺</option>
+	<option value="儿童画">儿童画</option>
+	<option value="卡通画">卡通画</option>
+	<option value="中国画">中国画</option>
+	<option value="西洋画">西洋画</option>
+	<option value="服装设计">服装设计</option>
+	<option value="服装表演">服装表演</option>
+	<option value="交谊舞">交谊舞</option>
+	<option value="拉丁舞">拉丁舞</option>
+	<option value="民族舞">民族舞</option>
+	<option value="芭蕾舞">芭蕾舞</option>
+	<option value="爵士舞">爵士舞</option>
+	<option value="少儿舞">少儿舞</option>
+	<option value="街舞">街舞</option>
+	<option value="卡拉OK/歌咏">卡拉OK/歌咏</option>
+	<option value="音乐启蒙">音乐启蒙</option>
+	<option value="视唱练耳">视唱练耳</option>
+	<option value="作曲与乐理">作曲与乐理</option>
+	<option value="美声声乐">美声声乐</option>
+	<option value="民族声乐">民族声乐</option>
+	<option value="表演">表演</option>
+	<option value="演讲与主持">演讲与主持</option>
+	<option value="话剧">话剧</option>
+	<option value="京剧">京剧</option>
+	<option value="越剧">越剧</option>
+	<option value="豫剧">豫剧</option>
+	<option value="沪剧">沪剧</option>
+	<option value=""></option>
+	<option value="">---计算机---</option>
+	<option value="计算机基本操作">计算机基本操作</option>
+	<option value="SEO优化">SEO优化</option>
+	<option value="数据库">数据库</option>
+	<option value="Oracle">Oracle</option>
+	<option value="SQL">SQL</option>
+	<option value="Mysql">Mysql</option>
+	<option value="网页设计与制作">网页设计与制作</option>
+	<option value="HTML(CSS)">HTML(CSS)</option>
+	<option value="HTML5">HTML5</option>
+	<option value="计算机应用能力">计算机应用能力</option>
+	<option value="计算机中级">计算机中级</option>
+	<option value="Linux或Unix">Linux或Unix</option>
+	<option value="PHP">PHP</option>
+	<option value="网站开发">网站开发</option>
+	<option value=".Net">.Net</option>
+	<option value="ASP">ASP</option>
+	<option value="JAVA">JAVA</option>
+	<option value="JSP">JSP</option>
+	<option value="网络工程">网络工程</option>
+	<option value="Photoshop（PS）">Photoshop（PS）</option>
+	<option value="图像处理软件">图像处理软件</option>
+	<option value="CorelDRAW">CorelDRAW</option>
+	<option value="AutoCAD">AutoCAD</option>
+	<option value="Illustrator">Illustrator</option>
+	<option value="Flash">Flash</option>
+	<option value="动画制作">动画制作</option>
+	<option value="3DMAX">3DMAX</option>
+	<option value="Maya">Maya</option>
+	<option value="影视后期">影视后期</option>
+	<option value="影视剪辑">影视剪辑</option>
+	<option value="程序设计">程序设计</option>
+	<option value="C语言">C语言</option>
+	<option value="Android开发">Android开发</option>
+	<option value="IOS开发">IOS开发</option>
+	<option value="程序设计高级">程序设计高级</option>
+	<option value="微软认证">微软认证</option>
+	<option value="思科认证">思科认证</option>
+	<option value="Oracle认证">Oracle认证</option>
+	<option value="Linux认证">Linux认证</option>
+	<option value="CCNA">CCNA</option>
+	<option value="华为认证">华为认证</option>
+	<option value="CCNP">CCNP</option>
+	<option value="Java认证">Java认证</option>
+	<option value="原画设计">原画设计</option>
+	<option value="平面设计">平面设计</option>
+	<option value="室内设计">室内设计</option>
+	<option value="建筑设计">建筑设计</option>
+	<option value=""></option>
+	<option value="">--棋类/体育--</option>
+	<option value="围棋">围棋</option>
+	<option value="中国象棋">中国象棋</option>
+	<option value="国际象棋">国际象棋</option>
+	<option value="国际跳棋">国际跳棋</option>
+	<option value="五子棋">五子棋</option>
+	<option value="桥牌">桥牌</option>
+	<option value="中国武术">中国武术</option>
+	<option value="气功">气功</option>
+	<option value="拳击">拳击</option>
+	<option value="太极拳">太极拳</option>
+	<option value="跆拳道">跆拳道</option>
+	<option value="空手道">空手道</option>
+	<option value="减肥操">减肥操</option>
+	<option value="健美">健美</option>
+	<option value="体操">体操</option>
+	<option value="瑜珈">瑜珈</option>
+	<option value="滑冰旱冰">滑冰旱冰</option>
+	<option value="游泳">游泳</option>
+	<option value="保龄球">保龄球</option>
+	<option value="高尔夫">高尔夫</option>
+	<option value="乒乓球">乒乓球</option>
+	<option value="羽毛球">羽毛球</option>
+	<option value="网球">网球</option>
+	<option value="篮球">篮球</option>
+	<option value="足球">足球</option>
+	<option value="排球">排球</option>
+	<option value=""></option>
+	<option value="">--资格类考试--</option>
+	<option value="公务员考试">公务员考试</option>
+	<option value="会计从业资格">会计从业资格</option>
+	<option value="报关员考试">报关员考试</option>
+	<option value="基金从业">基金从业</option>
+	<option value="证券从业">证券从业</option>
+	<option value="银行从业">银行从业</option>
+	<option value="跟单员">跟单员</option>
+	<option value="司法考试">司法考试</option>
+	<option value="教师资格">教师资格</option>
+	<option value="国际商务师">国际商务师</option>
+	<option value="报检员">报检员</option>
+	<option value="价格鉴证师">价格鉴证师</option>
+	<option value="社会工作者">社会工作者</option>
+	<option value="物流师">物流师</option>
+	<option value="人力资源师">人力资源师</option>
+	<option value="外销员">外销员</option>
+	<option value="导游考试">导游考试</option>
+	<option value="单证员">单证员</option>
+	<option value="期货从业">期货从业</option>
+	<option value="管理咨询师">管理咨询师</option>
+	<option value="建造师">建造师</option>
+	<option value="执业医师">执业医师</option>
+	<option value="执业护士">执业护士</option>
+	<option value="公共营养师">公共营养师</option>
+	<option value="心理咨询师">心理咨询师</option>
+	<option value="秘书资格">秘书资格</option>
+	<option value=""></option>
+	<option value="">--休闲娱乐--</option>
+	<option value="陪玩">陪玩</option>
+	<option value="陪购">陪购</option>
+	<option value="伴游">伴游</option>
+	<option value="导游">导游</option>
+	<option value="魔术">魔术</option>
+	<option value=""></option>
+	<option value="">----兼职----</option>
+	<option value="市场调查">市场调查</option>
+	<option value="商品促销">商品促销</option>
+	<option value="广告投递">广告投递</option>
+	<option value="海报张贴">海报张贴</option>
+	<option value="乐队演奏">乐队演奏</option>
+	<option value="歌唱舞蹈">歌唱舞蹈</option>
+	<option value="节目主持">节目主持</option>
+	<option value="礼仪模特">礼仪模特</option>
+	<option value="形象代言">形象代言</option>
+	<option value="家政保姆">家政保姆</option>
+	<option value="文档处理">文档处理</option>
+	<option value="双休顶班">双休顶班</option>
+</select>
+
+                                            </td>
+                                            <td valign="middle" align="center" width="120">
+                                                <p>
+                                                    <input onclick="AddSubject(document.all(&quot;Subject_lstSubject&quot;),document.all(&quot;lstMySubject&quot;),document.all(&quot;txtHidden&quot;))" type="button" size="20" value="添加科目&gt;&gt;"></p>
+                                                添加请先选左侧<br>
+                                                项目点“添加”<br>
+                                                删除请先选右侧<br>
+                                                项目点“删除”
+                                                <p>
+                                                    <input onclick="DelSubject(document.all(&quot;lstMySubject&quot;),document.all(&quot;txtHidden&quot;))" type="button" size="20" value="&lt;&lt;删除科目">
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <select name="lstMySubject" id="lstMySubject" style="width: 175px;height:175px" multiple="multiple" size="10" class="ddl">
+	<option value="幼儿陪玩">幼儿陪玩</option>
+</select>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    备选科目：
+                                </th>
+                                <td>
+                                    <input name="txtSubject" type="text" value="无" id="txtSubject" class="textarea" style="width:248px;"><input name="txtHidden" type="hidden" id="txtHidden" size="3" value="幼儿陪玩"><input name="txtHiddenArea" type="hidden" id="txtHiddenArea" size="6" value="新罗">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    教授区域：
+                                </th>
+                                <td>
+                                    <table cellspacing="0" cellpadding="0" border="0">
+                                        <tbody><tr>
+                                            <td width="120">
+                                                <select name="lstArea" id="lstArea" style="width: 180px;height:175px" multiple="multiple" size="10" class="ddl">
+	<option value="新罗">新罗</option>
+	<option value="漳平">漳平</option>
+	<option value="长汀">长汀</option>
+	<option value="武平">武平</option>
+	<option value="上杭">上杭</option>
+	<option value="永定">永定</option>
+	<option value="连城">连城</option>
+</select>
+                                            </td>
+                                            <td valign="middle" align="center" width="120">
+                                                <p>
+                                                    <input onclick="AddSubject(document.all(&quot;lstArea&quot;),document.all(&quot;lstMyArea&quot;),document.all(&quot;txtHiddenArea&quot;))" type="button" size="20" value="添加区域&gt;&gt;"></p>
+                                                添加请先选左侧<br>
+                                                项目点“添加”<br>
+                                                删除请先选右侧<br>
+                                                项目点“删除”
+                                                <p>
+                                                    <input onclick="DelSubject(document.all(&quot;lstMyArea&quot;),document.all(&quot;txtHiddenArea&quot;))" type="button" size="20" value="&lt;&lt;删除区域">
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <select name="lstMyArea" id="lstMyArea" style="width: 175px;height:175px" multiple="multiple" size="10" class="ddl">
+	<option value="新罗">新罗</option>
+</select>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    可授课区域/时间详细描述：
+                                </th>
+                                <td>
+                                    <textarea name="txtWorkArea" rows="2" cols="20" id="txtWorkArea" class="textarea" style="width:248px;">2路9路36路</textarea>
+                                    <br>
+                                    (1)区域，如：杨浦复旦大学附近、徐汇田林新村附近、虹口全区(2)周六全天、周日上午，虹口曲阳新村附近。(3)周一到周四晚上，杨浦复旦附近。
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    辅导经验：
+                                </th>
+                                <td>
+                                    <select name="TeachTime$lstAge" id="TeachTime_lstAge" class="ddl" nullmsg="请选择教龄" datatype="*">
+	<option value="">请选择</option>
+	<option selected="selected" value="0">0年</option>
+	<option value="1">1年</option>
+	<option value="2">2年</option>
+	<option value="3">3年</option>
+	<option value="4">4年</option>
+	<option value="5">5年</option>
+	<option value="6">6年</option>
+	<option value="7">7年</option>
+	<option value="8">8年</option>
+	<option value="9">9年</option>
+	<option value="10">10年</option>
+	<option value="11">11年</option>
+	<option value="12">12年</option>
+	<option value="13">13年</option>
+	<option value="14">14年</option>
+	<option value="15">15年</option>
+	<option value="16">16年</option>
+	<option value="17">17年</option>
+	<option value="18">18年</option>
+	<option value="19">19年</option>
+	<option value="20">20年</option>
+	<option value="20-40">20年以上</option>
+</select>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    辅导方式：
+                                </th>
+                                <td>
+                                    
+<p>
+</p><table id="TeachType_chkList" style="width:360px;">
+	<tbody><tr>
+		<td><input id="TeachType_chkList_0" type="checkbox" name="TeachType$chkList$0" checked="checked" value="教员上门"><label for="TeachType_chkList_0">教员上门</label></td><td><input id="TeachType_chkList_1" type="checkbox" name="TeachType$chkList$1" checked="checked" value="学员上门"><label for="TeachType_chkList_1">学员上门</label></td><td><input id="TeachType_chkList_2" type="checkbox" name="TeachType$chkList$2" checked="checked" value="网上辅导"><label for="TeachType_chkList_2">网上辅导</label></td><td><input id="TeachType_chkList_3" type="checkbox" name="TeachType$chkList$3" checked="checked" value="协商"><label for="TeachType_chkList_3">协商</label></td><td></td>
+	</tr>
+</tbody></table><p></p>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    薪酬要求：
+                                </th>
+                                <td>
+                                    <textarea name="txtSalary" rows="2" cols="20" id="txtSalary" class="txt" style="width:258px;">执行阳光家教网薪水标准</textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    &nbsp;
+                                </th>
+                                <td>
+                                    <input type="submit" name="btnSubmit" value=" 提 交 " onclick="if(!CheckForm()) return false;" id="btnSubmit" class="btn">
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <!--end container2-->
+        </div>
+        <!--idx end container-->
+        <div class="clear20">
+        </div>
+    </div>
+    
+<!--idx foot nav-->
+<div class="footNavBox">
+    <div class="footNav">
+        <div class="cityTel">
+            <span>北京热线</span>
+        <p>400-700-7788</p></div>
+        <div class="navBox">
+            <dl>
+                <dt>会员指南</dt>
+                <dd>
+                    <span>→ </span><a href="http://bj.ygjj.com/News/8/1" rel="nofollow">帮助中心</a></dd>
+                <dd>
+                    <span>→ </span><a href="http://bj.ygjj.com/D7149.html" rel="nofollow">如何请家教</a></dd>
+                <dd>
+                    <span>→ </span><a href="http://bj.ygjj.com/D7150.html" rel="nofollow">如何做家教</a></dd>
+                <dd>
+                    <span>→ </span><a href="http://bj.ygjj.com/D7151.html" rel="nofollow">教员签约协议</a></dd>
+            </dl>
+            <dl>
+                <dt>支付方式</dt>
+                <dd>
+                    <span>→ </span><a href="http://bj.ygjj.com/D7152.html" rel="nofollow">在线支付</a></dd>
+                <dd>
+                    <span>→ </span><a href="http://bj.ygjj.com/Online.aspx" rel="nofollow">银行转账</a></dd>
+                <dd>
+                    <span>→ </span><a href="http://bj.ygjj.com/Cost.aspx" rel="nofollow">资费标准</a></dd>
+                <dd>
+                    <span>→ </span><a href="http://bj.ygjj.com/D7154.html" rel="nofollow">退款说明</a></dd>
+            </dl>
+            <dl>
+                <dt>服务条款</dt>
+                <dd>
+                    <span>→ </span><a href="http://bj.ygjj.com/D7155.html" rel="nofollow">隐私保护</a></dd>
+                <dd>
+                    <span>→ </span><a href="http://bj.ygjj.com/D7156.html" rel="nofollow">侵权处理</a></dd>
+                <dd>
+                    <span>→ </span><a href="http://bj.ygjj.com/D7157.html" rel="nofollow">免责说明</a></dd>
+            </dl>
+            <dl>
+                <dt>关于我们</dt>
+                <dd>
+                    <span>→ </span><a href="http://bj.ygjj.com/D7173.html" rel="nofollow">阳光家教简介</a></dd>
+                <dd>
+                    <span>→ </span><a href="http://bj.ygjj.com/News/8/1/" rel="nofollow">阳光家教公告</a></dd>
+                <dd>
+                    <span>→ </span><a href="http://bj.ygjj.com/D7161.html" rel="nofollow">联系我们</a></dd>
+                <dd>
+                    <span>→ </span><a href="http://bj.ygjj.com/Links" rel="nofollow">友情链接</a></dd>
+            </dl>
+        </div>
+        <div class="wx">
+            <div class="tit">
+                关注微信</div>
+            <div class="con">
+                <img src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/wx.jpg"></div>
+        </div>
+        <div class="clear10">
+        </div>
+        <div class="ps">
+            【北京家教网】是阳光家教网的北京地区家教分站，是中国规模较大的正规、专业家教网站。我们为您提供最优质的北京家教，帮助北京小学老师、中学老师和大学生家教寻求家教兼职。欢迎致电<span class="focus">400-700-7788</span></div>
+        <div class="line">
+            &nbsp;</div>
+        <div class="city">
+            <dl>
+                <dt>热门城市：</dt>
+                <dd>
+                    <a href="http://sh.ygjj.com/" title="上海家教网" rel="nofollow">上海家教</a></dd><dd><a href="http://bj.ygjj.com/" title="北京家教网" rel="nofollow">北京家教</a></dd><dd><a href="http://gz.ygjj.com/" title="广州家教网" rel="nofollow">广州家教</a></dd><dd><a href="http://sz.ygjj.com/" title="深圳家教网" rel="nofollow">深圳家教</a></dd><dd><a href="http://nj.ygjj.com/" title="南京家教网" rel="nofollow">南京家教</a></dd><dd><a href="http://tj.ygjj.com/" title="天津家教网" rel="nofollow">天津家教</a></dd><dd><a href="http://wh.ygjj.com/" title="武汉家教网" rel="nofollow">武汉家教</a></dd><dd><a href="http://hz.ygjj.com/" title="杭州家教网" rel="nofollow">杭州家教</a></dd><dd><a href="http://xa.ygjj.com/" title="西安家教网" rel="nofollow">西安家教</a></dd><dd><a href="http://suzhou.ygjj.com/" title="苏州家教网" rel="nofollow">苏州家教</a></dd><dd><a href="http://hz.ygjj.com/" title="成都家教网" rel="nofollow">成都家教</a></dd><dd><a href="http://cs.ygjj.com/" title="长沙家教网" rel="nofollow">长沙家教</a></dd><dd><a href="http://sy.ygjj.com/" title="沈阳家教网" rel="nofollow">沈阳家教</a></dd><dd><a href="http://hf.ygjj.com/" title="合肥家教网" rel="nofollow">合肥家教</a></dd><dd><a href="http://dl.ygjj.com/" title="大连家教网" rel="nofollow">大连家教</a></dd><dd><a href="http://ts.ygjj.com/" title="唐山家教网" rel="nofollow">唐山家教</a></dd><dd><a href="http://wuhu.ygjj.com/" title="芜湖家教网" rel="nofollow">芜湖家教</a></dd><dd><a href="http://nb.ygjj.com/" title="宁波家教网" rel="nofollow">宁波家教</a></dd><dd><a href="http://gl.ygjj.com/" title="桂林家教网" rel="nofollow">桂林家教</a></dd><dd><a href="http://cz.ygjj.com/" title="常州家教网" rel="nofollow">常州家教</a></dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<!--idx end foot nav-->
+<!--idx end foot rc-->
+<div class="footRcBox">
+    <div class="footRc">
+        
+        <div class="clear10">
+            &nbsp;</div>
+        <div class="rc">
+            <div class="le1">
+                <a href="http://www.sgs.gov.cn/lz/licenseLink.do?method=licenceView&amp;entyId=20120612133312787" target="_blank" rel="nofollow"><img src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/gs.gif" border="0"></a></div>
+            <div class="ri">
+                《中华人民共和国法人营业执照》注册号：310120001560841<br>
+                《中华人民共和国组织机构代码证》：75840655-7<br>
+                本站法律顾问：上海明泰律师事务所 李居利律师
+                </div>
+        </div>
+    </div>
+</div>
+<!--idx end foot rc-->
+
+<table width="99%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tbody><tr align="center">
+        <td valign="top" width="50%" align="left">
+        
+        </td>
+        <td align="right" width="50%">
+            <!--{EBE105A1-12F7-4B74-9B3B-CC58AE565128}-->
+            <script language="javascript">
+                /*
+                CompanyName :上海阳光家教
+                Domain:http://www.ygjj.com
+                VocationName:商务服务\教育培训
+                DESC:中国规模最大的正规、专业家教网站，阳光家教网引领家教中介不断规范家教服务，为广大学员提供各学科的兼职家教老师和专职家庭教师，帮助小学教师、中学教师和大学生家教寻求家教兼职。
+                DateTime:2010-1-6 22:56:43
+                */
+                _estsalho_dma_var_SiteID = 13932;          
+            </script>
+            <!--{FF1DF55F-BA69-4846-8996-234AE75CAFBC}-->
+            <script language="javascript" src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/click.aspx" charset="gb2312"></script><a href="http://countt.51yes.com/index.aspx?id=201363627" target="_blank"><img width="20" height="20" border="0" hspace="0" vspace="0" src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/count8.gif" alt="51YES网站统计系统"></a><iframe marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/sa.html" height="0" width="0"></iframe>
+        </td>
+    </tr>
+    <tr>
+        <td align="center" height="30" valign="middle" colspan="2">
+            版权所有 上海鸿儒教育信息咨询有限公司－阳光家教网－上海家教 投诉电话：021-51082788*2<br>
+            网络实名：<a href="http://www.ygjj.com/" rel="nofollow">家教</a> <a href="http://www.ygjj.com/shanghai.aspx" rel="nofollow">
+                上海家教</a> <a href="http://bj.ygjj.com/" rel="nofollow">北京家教</a> <a href="http://gz.ygjj.com/" rel="nofollow">广州家教</a>
+            <a href="http://suzhou.ygjj.com/" rel="nofollow">苏州家教</a> <a href="http://sz.ygjj.com/" rel="nofollow">深圳家教</a><br>
+            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011302002671" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="./家教_数学家教_英语家教_钢琴家教_大学生家教_家教兼职_家教论坛【阳光家教网-北京家教中心-北京家教】_files/ga.png" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">沪公网安备 31011302002671号</p></a><br>
+            <a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">沪ICP备15011267号</a>
+        </td>
+    </tr>
+</tbody></table>
+
+    </form>
+
+
+</body></html>

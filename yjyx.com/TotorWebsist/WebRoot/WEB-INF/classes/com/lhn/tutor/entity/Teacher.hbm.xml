@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.lhn.tutor.entity">
+	<class name="Teacher" table="teacher">
+		<id name="sId" type="java.lang.String">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="tName" type="java.lang.String"/>
+		<property name="tIdcard" type="java.lang.String"/>
+		<property name="tGrade" type="java.lang.String"/>
+		<property name="tBirthday" type="java.lang.String"/>
+		<property name="tPlace" type="java.lang.String"/>
+		<property name="tPicture" type="java.lang.String"/>
+		<property name="tSchool" type="java.lang.String"/>
+		<property name="tMajor" type="java.lang.String"/>
+		<property name="tGrade" type="java.lang.String"/>
+		<property name="tTel" type="java.lang.String"/>
+		<property name="tOnline" type="java.lang.String"/>
+		<property name="tEmail" type="java.lang.String"/>
+		<property name="tAddress" type="java.lang.String"/>
+		<property name="tFamilyaddress" type="java.lang.String"/>
+		<property name="tZipcode" type="int"/>
+		<!-- 配置一对一关联关系 -->
+		<many-to-one name="user" class="com.lhn.tutor.entity.User" column="user_id" unique="true"></many-to-one>
+		<one-to-one name="resume" class="com.lhn.tutor.entity.Teacher" cascade="all"></one-to-one>
+	</class>
+</hibernate-mapping>

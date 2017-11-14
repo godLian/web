@@ -1,0 +1,97 @@
+.all{
+    width: 50px;
+    border: 1px solid #f90;
+    height: 35px;
+    z-index: 0;
+}
+.head p{
+    margin: 0;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    float: left;
+    line-height: 50px;
+    background: #1D7AD9;
+}
+.btn{
+    font-size: 12px;
+    width: 80px;
+    text-align: center;
+    height: 50px;
+    display: block;
+    line-height: 60px;
+}
+.btn:hover{
+    color: #fff;
+    text-decoration:underline;
+}
+.head{
+    background: #1D7AD9;
+    width: 128px;
+    clear: both;
+    height: 50px;
+}
+.head .diqu{
+    margin-left: 5px;
+}
+.cityBox{
+    width: 800px ;
+    min-height: 600px;
+    border: 3px solid moccasin;
+    position: absolute;
+    border-radius: 5px;
+    display: none;
+    background: #fff;
+    top: 15%;
+    left: 28%;
+    z-index: 1;
+}
+.cityBox .head{
+    height: 50px;
+    background: moccasin;
+    text-align: center;
+}
+.cityBox .head .title{
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.cityBox .head .close{
+    line-height: 50px;
+    font-size: 12px;
+    float: right;
+    margin-right: 10px;
+}
+.cityBox .head .close:hover{
+    color: red;
+}
+.cityBox .c1{
+    margin: 10px 0 0 10px;
+}
+.cityBox .bt{
+    float: left;
+}
+.cityBox .list{
+    float: left;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 690px;
+}
+.cityBox .list li{
+    float: left;
+    width: 60px;
+    list-style: none;
+    height: 20px;
+    line-height: 20px;
+    font-size: 13px;
+    color: #2e2e2e;
+    font-family: Î¢ÈíÑÅºÚ;
+    font-weight: bold;
+    overflow: hidden;
+}
+.cityBox .list li:hover{
+    cursor: pointer;
+}

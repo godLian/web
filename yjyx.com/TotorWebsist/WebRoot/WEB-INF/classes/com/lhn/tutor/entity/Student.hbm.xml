@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.lhn.tutor.entity">
+	<class name="Student" table="student">
+		<id name="sId" type="java.lang.String">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="sName" type="java.lang.String"/>
+		<property name="sIdcard" type="java.lang.String"/>
+		<property name="sGrade" type="java.lang.String"/>
+		<property name="sBirthday" type="java.lang.String"/>
+		<property name="sPlace" type="java.lang.String"/>
+		<property name="sPicture" type="java.lang.String"/>
+		<property name="sSchool" type="java.lang.String"/>
+		<property name="sGrade" type="java.lang.String"/>
+		<property name="sTel" type="java.lang.String"/>
+		<property name="sOnline" type="java.lang.String"/>
+		<property name="sEmail" type="java.lang.String"/>
+		<property name="sAddress" type="java.lang.String"/>
+		<property name="sFamilyaddress" type="java.lang.String"/>
+		<property name="sZipcode" type="int"/>
+		<!-- 配置一对一关联关系 -->
+		<many-to-one name="user" class="com.lhn.tutor.entity.User" column="user_id" unique="true"></many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.lhn.tutor.entity">
+	<class name="Resume" table="resume">
+		<id name="rId" type="java.lang.String">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="rFirstteach" type="java.lang.String"/>
+		<property name="rSecondteach" type="java.lang.String"/>	
+		<!-- 配置一对一关联关系 -->
+		<many-to-one name="teacher" class="com.lhn.tutor.entity.Teacher" column="teacher_id" unique="true"></many-to-one>
+	</class>
+</hibernate-mapping>
